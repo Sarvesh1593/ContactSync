@@ -28,7 +28,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Register"
+                android:text="Login"
                 android:textSize="25sp"
                 android:gravity="center"
                 android:layout_marginTop="30dp"
@@ -58,7 +58,6 @@
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
                 android:backgroundTint="@color/otp_color"/>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -68,14 +67,14 @@
                 <TextView
                     android:layout_width="114dp"
                     android:layout_height="wrap_content"
-                    android:text="Already Register"
+                    android:text="Not Register"
                     android:textColor="@color/text_color"/>
 
                 <TextView
-                    android:id="@+id/tv_login"
+                    android:id="@+id/tv_register"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Login"
+                    android:text="Register"
                     android:textColor="@color/black" />
             </LinearLayout>
         </LinearLayout>

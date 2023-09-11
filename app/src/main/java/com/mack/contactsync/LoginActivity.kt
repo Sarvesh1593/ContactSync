@@ -17,11 +17,11 @@ import com.google.firebase.auth.FirebaseAuthMissingActivityForRecaptchaException
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthOptions
 import com.google.firebase.auth.PhoneAuthProvider
-import com.mack.contactsync.databinding.ActivityPhoneBinding
+import com.mack.contactsync.databinding.ActivityLoginBinding
 import java.util.concurrent.TimeUnit
 
-class PhoneActivity : AppCompatActivity() {
-    private lateinit var binding : ActivityPhoneBinding
+class LoginActivity : AppCompatActivity() {
+    private lateinit var binding : ActivityLoginBinding
     private lateinit var sendOTP : Button
     private lateinit var phoneEdit : EditText
     private lateinit var auth : FirebaseAuth
@@ -29,11 +29,8 @@ class PhoneActivity : AppCompatActivity() {
     private lateinit var progressbar : ProgressBar
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityPhoneBinding.inflate(layoutInflater)
+        binding =ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.tvLogin.setOnClickListener {
-            startActivity(Intent(this,LoginActivity::class.java))
-        }
         init()
         sendOTP.setOnClickListener {
             number = phoneEdit.text.trim().toString()
@@ -49,11 +46,14 @@ class PhoneActivity : AppCompatActivity() {
                         .build()
                     PhoneAuthProvider.verifyPhoneNumber(options)
                 }else{
-                    Toast.makeText(this,"Please Enter a Correct Number",Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this,"Please Enter a Correct Number", Toast.LENGTH_SHORT).show()
                 }
             }else{
-                Toast.makeText(this,"Please Enter number",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"Please Enter number", Toast.LENGTH_SHORT).show()
             }
+        }
+        binding.tvRegister.setOnClickListener {
+            startActivity(Intent(this,PhoneActivity::class.java))
         }
     }
     private fun init(){
@@ -74,8 +74,6 @@ class PhoneActivity : AppCompatActivity() {
             //     user action.
             signInWithPhoneAuthCredential(credential)
         }
-
-
         override fun onVerificationFailed(e: FirebaseException) {
             // This callback is invoked in an invalid request for verification is made,
             // for instance if the the phone number format is not valid.
@@ -98,19 +96,12 @@ class PhoneActivity : AppCompatActivity() {
             // The SMS verification code has been sent to the provided phone number, we
             // now need to ask the user to enter the code and then construct a credential
             // by combining the code with a verification ID.
-            val intent = Intent(this@PhoneActivity, OTPActivity::class.java)
+            val intent = Intent(this@LoginActivity, OTPLoginActivity::class.java)
             intent.putExtra("verificationId",verificationId)
             intent.putExtra("resendToken",token)
             intent.putExtra("phone_Number",number)
             startActivity(intent)
             progressbar.visibility = View.INVISIBLE
-        }
-    }
-
-    override fun onStart() {
-        super.onStart()
-        if(auth.currentUser != null){
-            startActivity(Intent(this,ContactListActivity::class.java))
         }
     }
 

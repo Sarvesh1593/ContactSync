@@ -22,12 +22,11 @@ import com.google.firebase.auth.FirebaseAuthMissingActivityForRecaptchaException
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthOptions
 import com.google.firebase.auth.PhoneAuthProvider
-import com.mack.contactsync.databinding.ActivityOtpactivityBinding
-import org.w3c.dom.Text
+import com.mack.contactsync.databinding.ActivityOtploginBinding
 import java.util.concurrent.TimeUnit
 
-class OTPActivity : AppCompatActivity() {
-    private lateinit var binding : ActivityOtpactivityBinding
+class OTPLoginActivity : AppCompatActivity() {
+    private lateinit var binding : ActivityOtploginBinding
     private lateinit var verificationBtn : Button
     private lateinit var resendTV : TextView
     private lateinit var inputOTP1 : EditText
@@ -43,9 +42,8 @@ class OTPActivity : AppCompatActivity() {
     private lateinit var progressbar : ProgressBar
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityOtpactivityBinding.inflate(layoutInflater)
+        binding = ActivityOtploginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         OTP = intent.getStringExtra("verificationId").toString()
         resendToken = intent.getParcelableExtra("resendToken")!!
         number = intent.getStringExtra("phone_Number")!!
@@ -53,10 +51,6 @@ class OTPActivity : AppCompatActivity() {
         progressbar.visibility = View.INVISIBLE
         addTextChangeListener()
         resendOTPVisibility()
-        resendTV.setOnClickListener {
-            resendVerificationCode()
-            resendOTPVisibility()
-        }
         verificationBtn.setOnClickListener {
             val typedOTP = (inputOTP1.text.toString() + inputOTP2.text.toString() + inputOTP3.text.toString() +
                     inputOTP4.text.toString() + inputOTP5.text.toString() + inputOTP6.text.toString())
@@ -74,9 +68,12 @@ class OTPActivity : AppCompatActivity() {
                 Toast.makeText(this,"Please Enter OTP",Toast.LENGTH_SHORT).show()
             }
         }
+        resendTV.setOnClickListener {
+            resendVerificationCode()
+            resendOTPVisibility()
+        }
 
     }
-
     private fun resendOTPVisibility(){
         inputOTP1.setText("")
         inputOTP2.setText("")
@@ -131,9 +128,8 @@ class OTPActivity : AppCompatActivity() {
             resendToken = token
         }
     }
-    private fun sendToMain(){
-        val intent = Intent(this,MainActivity::class.java)
-        intent.putExtra("phone_number",number)
+    private fun sendToContact(){
+        val intent = Intent(this,ContactListActivity::class.java)
         startActivity(intent)
     }
     private fun signInWithPhoneAuthCredential(credential: PhoneAuthCredential) {
@@ -142,8 +138,8 @@ class OTPActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     progressbar.visibility = View.INVISIBLE
                     // Sign in success, update UI with the signed-in user's information
-                    Toast.makeText(this,"Authentication is Successfully",Toast.LENGTH_SHORT).show()
-                    sendToMain()
+                    Toast.makeText(this,"Authentication is Successfully", Toast.LENGTH_SHORT).show()
+                    sendToContact()
                 } else {
                     // Sign in failed, display a message and update the UI
                     if (task.exception is FirebaseAuthInvalidCredentialsException) {
@@ -173,7 +169,7 @@ class OTPActivity : AppCompatActivity() {
         inputOTP5 = binding.editOtp5
         inputOTP6 = binding.editOtp6
     }
-    inner class EditTextWatcher(private val view : View) :  TextWatcher{
+    inner class EditTextWatcher(private val view : View) : TextWatcher {
         override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
 
         }
