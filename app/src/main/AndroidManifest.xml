@@ -17,12 +17,6 @@
         android:theme="@style/Theme.ContactSync"
         tools:targetApi="31" >
         <activity
-            android:name=".ContactListActivity"
-            android:exported="false" />
-        <activity
-            android:name=".OTPActivity"
-            android:exported="true" />
-        <activity
             android:name=".PhoneActivity"
             android:exported="true" >
             <intent-filter>
@@ -32,8 +26,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".ContactListActivity"
             android:exported="true" />
+        <activity
+            android:name=".OTPActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

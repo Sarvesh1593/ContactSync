@@ -61,9 +61,6 @@ class PhoneActivity : AppCompatActivity() {
         sendOTP = binding.sendOtp
         auth = FirebaseAuth.getInstance()
     }
-    private fun sendToMain(){
-        startActivity(Intent(this, MainActivity::class.java))
-    }
     private val callbacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
 
         override fun onVerificationCompleted(credential: PhoneAuthCredential) {
@@ -111,7 +108,7 @@ class PhoneActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         if(auth.currentUser != null){
-            startActivity(Intent(this,MainActivity::class.java))
+            startActivity(Intent(this,ContactListActivity::class.java))
         }
     }
 
@@ -121,7 +118,6 @@ class PhoneActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     Toast.makeText(this,"Authentication is Successfully",Toast.LENGTH_SHORT).show()
-                    sendToMain()
                 } else {
                     // Sign in failed, display a message and update the UI
                     if (task.exception is FirebaseAuthInvalidCredentialsException) {
