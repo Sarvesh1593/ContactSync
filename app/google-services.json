@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "839556557217",
+    "project_id": "contactsync-f15c2",
+    "storage_bucket": "contactsync-f15c2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:839556557217:android:cef740b00878415b1a83e0",
+        "android_client_info": {
+          "package_name": "com.mack.contactsync"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBeA90FG9S5iNI4T5p_rS9fioH-MkXG7NI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

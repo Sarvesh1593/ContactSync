@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ContactSync</string>
+    <string name="otp_verification">OTP Verification</string>
+    <string name="resend_otp">Resend OTP</string>
+    <string name="enter_phone_number">Enter Phone Number</string>
+    <string name="send_otp">Send OTP</string>
+</resources>

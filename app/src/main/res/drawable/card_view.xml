@@ -1,0 +1,7 @@
+<!-- custom_card_shape.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#F5F5F5" /> <!-- Background color of the shape -->
+    <corners android:radius="10dp" /> <!-- Adjust the radius to control the roundness -->
+    <stroke
+        android:color="#CCCCCC"/>
+</shape>

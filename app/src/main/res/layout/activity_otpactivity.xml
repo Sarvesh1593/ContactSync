@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:gravity="center">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="20dp"
+        android:background="@drawable/card_view">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:padding="24dp"
+            android:orientation="vertical"
+            android:background="@drawable/card_view">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/otp_verification"
+                android:textSize="25sp"
+                android:gravity="center"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="@color/text_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/card_view">
+
+                <EditText
+                    android:id="@+id/edit_otp_1"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:inputType="number"
+                    android:hint="0"
+                    android:gravity="center"
+                    android:background="@drawable/otp_shape"/>
+
+                <EditText
+                    android:id="@+id/edit_otp_2"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:inputType="number"
+                    android:hint="0"
+                    android:gravity="center"
+                    android:layout_marginStart="5dp"
+                    android:background="@drawable/otp_shape"/>
+
+                <EditText
+                    android:id="@+id/edit_otp_3"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:inputType="number"
+                    android:hint="0"
+                    android:gravity="center"
+                    android:layout_marginStart="5dp"
+                    android:background="@drawable/otp_shape"/>
+
+                <EditText
+                    android:id="@+id/edit_otp_4"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:inputType="number"
+                    android:hint="0"
+                    android:gravity="center"
+                    android:layout_marginStart="5dp"
+                    android:background="@drawable/otp_shape"/>
+
+                <EditText
+                    android:id="@+id/edit_otp_5"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:inputType="number"
+                    android:hint="0"
+                    android:gravity="center"
+                    android:layout_marginStart="5dp"
+                    android:background="@drawable/otp_shape"/>
+
+                <EditText
+                    android:id="@+id/edit_otp_6"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:inputType="number"
+                    android:hint="0"
+                    android:gravity="center"
+                    android:layout_marginStart="5dp"
+                    android:background="@drawable/otp_shape"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/resend_otp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="@string/resend_otp"
+                android:textColor="@color/text_color"
+                android:layout_marginTop="5dp"
+                android:textSize="16sp"/>
+            <Button
+                android:id="@+id/submit_otp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Verification"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:backgroundTint="@color/otp_color"/>
+        </LinearLayout>
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:progressTint="@color/otp_color"
+            android:indeterminateTint="@color/otp_color" />
+    </androidx.cardview.widget.CardView>
+</LinearLayout>
